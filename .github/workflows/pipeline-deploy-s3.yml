@@ -33,4 +33,6 @@ jobs:
         name: site
         path: index.html
     - run: ls -la
+    - run: aws sts get-caller-identity
     - run: aws s3 cp index.html s3://$BUCKET_S3 --recursive --acl public-read
+    

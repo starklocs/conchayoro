@@ -1,0 +1,19 @@
+{
+  "name": "conchayoro",
+  "version": "1.0.0",
+  "description": "Full stack app for tech learning\r Welcome to our home page!!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/starklocs/conchayoro.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/starklocs/conchayoro/issues"
+  },
+  "homepage": "https://github.com/starklocs/conchayoro#readme"
+}

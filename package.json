@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/starklocs/conchayoro/issues"
   },
-  "homepage": "https://github.com/starklocs/conchayoro#readme"
+  "homepage": "https://github.com/starklocs/conchayoro#readme",
+  "dependencies": {
+    "react-scripts": "^3.0.1"
+  }
 }

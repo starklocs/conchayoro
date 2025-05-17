@@ -14,7 +14,8 @@ FROM node:18-alpine AS production-stage
 
 WORKDIR /app
 
-COPY --from=build-stage /app ./
+# COPY --from=build-stage /app ./
+COPY --from=build-stage /app/.next/. /usr/share/nginx/html/_next/
 
 ENV NODE_ENV=production
 

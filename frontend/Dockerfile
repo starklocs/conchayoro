@@ -7,18 +7,17 @@ COPY package*.json ./
 RUN npm install
 
 COPY . .
+RUN npm run build
 
-# Build + export
-RUN npm run build && npm run export
+# Etapa de produção
+FROM node:18-alpine AS production-stage
 
-# Etapa de produção com NGINX
-FROM nginx:alpine AS production-stage
+WORKDIR /app
 
-# Copia arquivos exportados para o root do NGINX
-COPY --from=build-stage /app/out /usr/share/nginx/html
+COPY --from=build-stage /app ./
 
-# Expõe a porta padrão do NGINX
-EXPOSE 80
+ENV NODE_ENV=production
 
-# Comando para rodar o NGINX em foreground
-CMD ["nginx", "-g", "daemon off;"]
+EXPOSE 3000
+
+CMD ["npm", "start"]

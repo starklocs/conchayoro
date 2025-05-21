@@ -17,8 +17,6 @@ WORKDIR /app
 COPY --from=build-stage /app .
 
 ENV NODE_ENV=production
-
-# Elastic Beanstalk por padrão usa a porta 8080, então vamos forçar o Next a usá-la
 ENV PORT=8080
 
 EXPOSE 8080

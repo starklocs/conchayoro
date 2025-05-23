@@ -1,4 +1,5 @@
-// src/products/entities/product.entity.ts
+// src/products/product.model.ts
+
 import {
   Table,
   Column,
@@ -10,18 +11,18 @@ import {
 } from 'sequelize-typescript';
 
 @Table({
-  tableName: 'products',
-  timestamps: true,
+  tableName: 'products', // Nome da tabela no banco de dados
+  timestamps: true,      // Adiciona os campos createdAt e updatedAt automaticamente
 })
 export class Product extends Model<Product> {
   @PrimaryKey
   @AutoIncrement
   @AllowNull(false)
   @Column(DataType.INTEGER)
-  declare id: number; // Adicionado 'declare' para o aviso TS(2612), opcional
+  declare id: number; 
 
   @AllowNull(false)
-  @Column(DataType.STRING)
+  @Column(DataType.STRING) 
   name: string;
 
   @AllowNull(false)
@@ -35,6 +36,4 @@ export class Product extends Model<Product> {
   @AllowNull(true)
   @Column(DataType.INTEGER)
   rating: number;
-
-  // Nenhuma importação de outros arquivos do módulo 'products' aqui!
 }

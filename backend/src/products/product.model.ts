@@ -1,5 +1,3 @@
-// src/products/product.model.ts
-
 import {
   Table,
   Column,
@@ -19,21 +17,21 @@ export class Product extends Model<Product> {
   @AutoIncrement
   @AllowNull(false)
   @Column(DataType.INTEGER)
-  declare id: number; 
+  declare id: number;
 
   @AllowNull(false)
-  @Column(DataType.STRING) 
-  name: string;
+  @Column(DataType.STRING)
+  declare name: string; // <--- Use declare aqui
 
   @AllowNull(false)
   @Column(DataType.FLOAT)
-  price: number;
+  declare price: number; // <--- Use declare aqui
 
   @AllowNull(true)
   @Column(DataType.STRING)
-  category: string;
+  declare category: string | null; // <--- Use declare aqui (e null se preferir a undefined)
 
   @AllowNull(true)
   @Column(DataType.INTEGER)
-  rating: number;
+  declare rating: number | null; // <--- Use declare aqui (e null se preferir a undefined)
 }

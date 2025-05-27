@@ -4,8 +4,21 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
-import { Product } from './entities/product.entity';
+import { Product } from './product.model';
+import { forwardRef, Module } from '@nestjs/common';
+import { SequelizeModule } from '@nestjs/sequelize';
+import { ProductsController } from './products.controller';
 
+
+@Module({
+  imports: [
+    SequelizeModule.forFeature([Product]),
+    forwardRef(() => ProductsModule),
+  ],
+  controllers: [ProductsController],
+
+})
+export class ProductsModule {}
 @Injectable()
 export class ProductsService {
   constructor(

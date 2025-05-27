@@ -2,7 +2,8 @@ import { Test } from '@nestjs/testing';
 import { getModelToken } from '@nestjs/sequelize';
 import { ProductsController } from './products.controller';
 import { ProductsService } from './products.service';
-import { Product } from './entities/product.entity';
+import { Product } from './product.model'; // ✅ caminho único e consistente
+
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 const product = {
@@ -62,7 +63,8 @@ describe('ProductsController', () => {
   });
 
   it('should return an array of products', async () => {
-    const mockedResponseData = [];
+    const mockedResponseData: Product[] = [];
+
     jest
       .spyOn(productsService, 'findAll')
       .mockImplementation(() => Promise.resolve(mockedResponseData));
@@ -79,7 +81,8 @@ describe('ProductsController', () => {
   });
 
   it('should return an array of products by criteria', async () => {
-    const mockedResponseData = [];
+    const mockedResponseData: Product[] = [];
+
     const criteria = { id: '1' };
     jest
       .spyOn(productsService, 'findByCriteria')
